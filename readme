@@ -1,1 +1,13 @@
-
+Team: ECNU_ICA
+=================Algorithm==================
+Run-1:
+We compute the similarities between a query and abstracts of its pids. Either a query or an abstract can be represented as a collection of words, w={w1,w2,...,wn}.
+Each word here is a vector. And a query or an abstract can be represented as a vector which is mean value of w.
+Assume that we have a query q and its pids,P={p1,p2,...,pm}. We compute similarities between q&p1,q&p2,etc. Finally we rank according to these similarities.
+Run-2:
+We use learning to rank model on this task. We extracted the weighting score and the rank of each document-query pair from a retrieval model as features. To utilize the 
+advantages of different retrieval models, we obtain the score and rank from BM25, PL2 and BB2 model. Hence, the dimension of feature vector is 6 in this experiment.
+We apply random forest to classify the document-query pairs into relevant or not. Each document-pair which is relevant will award an extra relevance score. The result is 
+re-ranked by the new score.
+Run-3:
+Combination of Run-1 and Run-2
